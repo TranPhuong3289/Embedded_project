@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPU 6050 CONNECTED WEB</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"> </script>
+</head>
+<body>
+    <div class="main-menu">
+        <ul>
+            <section class="home">
+                <li class="menu-item"><i class="fa fa-home"></i>Home</li>
+                <li class="menu-item"><i class="fa fa-bell"></i>Notifications</li>
+                <li class="menu-item"><i class="fa fa-paper-plane"></i>Messages</li>
+            </section>
+            <section class="links">
+                <li class="menu-item"><i class="fa fa-gamepad"></i>Gaming</li>
+                <li class="menu-item"><i class="fa fa-code"></i>Programming</li>
+                <li class="menu-item"><i class="fa fa-motorcycle"></i>Travel</li>
+                <li class="menu-item"><i class="fa fa-gears"></i>Technology</li>
+                <li class="menu-item"><i class="fa fa-hashtag"></i>Mathematics</li>
+                <li class="menu-item"><i class="fa fa-wrench"></i>Physics</li>
+                <li class="menu-item"><i class="fa fa-globe"></i>Web Development</li>
+                <li class="menu-item"><i class="fa fa-android"></i>Android Development</li>
+            </section>
+            <section class="social">
+                <li class="menu-item"><i class="fa fa-facebook"></i>Facebook</li>
+                <li class="menu-item"><i class="fa fa-twitter"></i>Twitter</li>
+                <li class="menu-item"><i class="fa fa-github"></i>Github</li>
+            </section>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            <header class="header-flex-2">CONTROL MENU MPU6050</header>
+            <article class="main">
+              <p>
+                <div class="content-box-yellow">
+                    <span style="color: #222222; font-family: sans-serif; ">
+                        <div class="container">
+                                <div class="form" style=" width: 100%; height:100%;">
+                                    <h2 class="tittle"> CONTROL MPU </h2>
+                                    <form id = "form" action ="" >
+                                        <div class="mb-3"> 
+                                            <label for="sample_rate"> Sample Rate :</label>
+                                            <input type="text" id="sample_rate" name="sample_rate">
+                                            <label> Hz </label> <br><br>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="DLPF" class="form-label"> Digital Low-Pass Filter:</label>
+                                            <select class="form-select" id="DLPF" name="dlpf">
+                                                <option selected>Select Current Frequency</option> 
+                                                <option value="7">None</option> 
+                                                <option value="0">260 Hz</option> 
+                                                <option value="1">184 Hz</option> 
+                                                <option value="2">94 Hz</option> 
+                                                <option value="3">44 Hz</option> 
+                                                <option value="4">21 Hz</option> 
+                                                <option value="5">10 Hz</option> 
+                                                <option value="6">5 Hz</option> 
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Accelerometer</p>    
+                                            <input type="radio" name="acc_fs" class="acc" value="0"> &#177 2g
+                                            <input type="radio" name="acc_fs" class="acc" value="1"> &#177 4g
+                                            <input type="radio" name="acc_fs" class="acc" value="2"> &#177 8g
+                                            <input type="radio" name="acc_fs" class="acc" value="3"> &#177 16g
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Gyroscope</p>                
+                                            <input type="radio" name="gypro_fs" class="gyro" value="0"> &#177 250&#176/s
+                                            <input type="radio" name="gypro_fs" class="gyro" value="1"> &#177 500&#176/s
+                                            <input type="radio" name="gypro_fs" class="gyro" value="2"> &#177 1000&#176/s
+                                            <input type="radio" name="gypro_fs" class="gyro" value="3"> &#177 2000&#176/s
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Interrupt:</p>
+                                            <input type="radio" name="interrupt" value="1"> Yes
+                                            <input type="radio" name="interrupt" value="0"> No                
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" background: 'blue' value="Apply">
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </span>
+                </div>
+              </p>  
+            </article>
+            <aside class="aside aside-1">
+             <!-- Lưu dữ liệu lên bảng Database -->
+                <div class="datavalue"> 
+                    <div class="database w-50 block">
+                        <h2>Database Configure Values</h2>
+                        <table>
+                            <tr>
+                                <th scope="col">Sample rate</th>
+                                <td id="td1"></td>
+                            </tr>
+                            <tr style="padding: 0em; margin-left: 20px;"> 
+                                <th scope="col"> Digital Low Pass Filter</th>
+                                <td id="td2"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Acc FS</th>
+                                <td id="td3"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Gyro FS</th>
+                                <td id="td4"></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">Interrupt</th>
+                                <td id="td5"></td>
+                            </tr>
+                        </table>
+                </div></div>
+                </aside>
+            <aside class="aside aside-2"> 
+                <div class="box_luuy">
+                <h3>Members of team</h3>
+                <p id="demo" style="display:none">
+                    1. Trần Hoàng Bảo Phương <br>MSSV: 19146244 <br>
+                    2. Quang Thành   <br>MSSV: 19146267  <br>
+                    3. Phạm Như Thể         <br> MSSV:19146266  <br>
+                </p> 
+                <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
+            </div>
+          </aside>
+ </div>
+        
+        <div class="wrapper border border-3 rounded border-primary">
+           <div style="width: 60%">  
+                <h3> PLOTTING MPU6050 DATA</h3>
+                <canvas id="myChart"></canvas>
+                <h4 class="modeselect">Roll Mode Ax</h4>
+                <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Roll-Mode-Output.gif" class ="profile_image" alt ="Roll Mode:Ax">
+                <h4 class="modeselect">Pitch Mode Ay</h4>
+                <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Pitch-Mode-Output.gif" class ="profile_image" alt ="Pitch Mode: Ay">
+            </div> 
+        </div>
+    </div>
+
+
+        <!-- ============================ Javascript bảng database =============================== -->
+    <script>
+        var label = [];
+        var rollmode = [];
+        var pitchmode = [];
+        
+        const chartdata = {
+        labels: label,
+            datasets: [{
+                label: 'rollmode',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: rollmode
+            },
+            {
+                label: 'pitchmode',
+                backgroundColor: 'rgb(99, 255, 132)',
+                borderColor: 'rgb(99, 255, 132)',
+                data: pitchmode
+            },
+
+        
+            ]
+        };
+        const config = {
+            type: 'line',
+            data: chartdata,
+            options: {
+                animation:false
+            }
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+        // load data tu database
+        $(document).ready(function(){
+            updateChart();
+        });
+        setInterval(updateChart,2000);
+        function updateChart(){
+            // gui request xuong database de lay data
+            $.post('readData.php',function(data){
+                var label = [];
+                var rollmode = [];
+                var pitchmode= [];
+
+                for(var i in data){
+                    label.push(data[i].stt);
+                    rollmode.push(data[i].rollmode);
+                    pitchmode.push(data[i].pitchmode);
+
+                }
+                // console.log(data1);
+                myChart.data.labels = label;
+                myChart.data.datasets[0].data = rollmode;
+                myChart.data.datasets[1].data = pitchmode;
+
+                myChart.update();
+
+
+            })
+
+
+        }
+
+           //#########################################     
+
+        $(document).ready(function(){
+            //code xu ly form
+            $(document).on('submit','#form',function(){
+                $.post("addData.php",$('#form').serialize(), function(){
+                    alert("DATA SENT!")
+                });
+                updateTable();
+                updateChart();
+                return false;
+            });
+            
+        });
+
+        function updateTable(){
+            // Yêu cầu server gọi file getData.php
+            $.post("getData.php",
+            function(data){
+                var td1 = data[0].sample_rate;
+                var td2 = data[0].dlpf;
+                var td3 = data[0].acc;
+                var td4 = data[0].gypro;
+                var td5 = data[0].interrupt;
+                with(document){
+                    getElementById("td1").innerHTML = td1;
+                    getElementById("td2").innerHTML = td2;
+                    getElementById("td3").innerHTML = td3;
+                    getElementById("td4").innerHTML = td4;
+                    getElementById("td5").innerHTML = td5;
+                };
+            })
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+*, body{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #ebebeb;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.main-menu{
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 20px #d4d4d4;
+
+    width: 70px;
+    height: 100vh;
+
+    position: fixed;
+    top:0;
+    left:0;
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    
+    transition: .3s ease;
+}
+
+.main-menu:hover{
+    width : 250px;
+    overflow-y: scroll;
+}
+
+.main-menu .menu-item{
+    padding: 10px;
+}
+.main-menu .menu-item:hover{
+    background-color: #d6d6d6;
+    cursor: pointer;
+}
+
+.main-menu .menu-item .fa{
+    color: gray;
+    width:40px;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.main-menu .menu-item:hover > .fa{
+    color: #1d0daa;
+}
+.mb-3{
+    padding:10;
+}
+.gyro{
+    padding:10;
+}
+section.home{
+    background-color: #f3f3f3;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+    border-radius: 10px;
+  }
+
+  .content{
+      
+      background-origin: center;
+      height: 100vh;
+      width: -1130px;
+      margin-left: 70px;
+      transition: 0.5s;
+  }
+
+  #check:checked ~.content{
+      margin-left: 60px;
+  }
+.modeselect{
+    margin-top: 2em;
+}
+
+.values{
+    padding: 30px 30px 30 30px;
+}
+
+.values .val-box{
+    background: rgb(233, 89, 89);
+    width: 240px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.values .val-box i{
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.values .val-box h3{
+    font-size: 18px;
+
+    font-weight: 600;
+}
+.values .val-box span{
+    font-size: 14px;
+    color: rgb(74, 61, 255);
+    font-weight: 600;
+}
+
+.content-box-yellow{
+    background-color: #fef5c4; 
+    border: 1px solid rgb(250, 223, 152); 
+    box-sizing: inherit; 
+    margin: 0px 0px 5px; 
+    overflow: hidden; 
+    padding: 50px;
+    
+}
+.framw{
+    background: #ebf6e0; 
+    border-radius: 2px; 
+    border: 1px solid #b3dc82; 
+    box-sizing: border-box; 
+    float: none; 
+    margin: 20px;; 
+    outline: 0px; 
+    padding-left:  20px; 
+    vertical-align: baseline; 
+    color: #5f9025; 
+    font-family: arial, sans-serif; 
+    font-size: 15px;
+}
+.wrapper {
+    display: flex;  /* kich hoat flex box */
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+    flex: 1 100%; /*cho tất cả phần tử bên trong có độ dài 100% và tỉ lệ chiếm không gian trống là như nhau*/
+  }
+  
+  .header-flex-2 {
+    background: tomato;
+    font-size: 30PX;
+    
+  }
+  .main {
+    text-align: left;
+    background: deepskyblue;
+    height: 400px;
+    flex: 3 0px; /* cho phần nội dung main ở giữa chiếm 3 phần không gian trống so với 2 phần aside bên cạnh */
+    order: 2;
+  }
+  
+  .aside { flex: 1 0 0; } /* 2 phần aside sẽ chỉ chiếm 1 phần không gian */
+  
+  .aside-1 {
+    background: gold;
+    height: 400px;
+    order: 1;
+  }
+  
+  .aside-2 {
+    background: hotpink;
+    height: 400px;
+    order: 3;
+  }
+  .box_luuy{
+    background: #66689c; 
+    box-shadow: rgba(0, 0, 0, 0.1) 3px 4px 4px; 
+    clear: both; line-height: 2; 
+    color: white; 
+    font-family: Roboto; 
+    letter-spacing: -0.75px; 
+    margin: 5px 0px; 
+    padding: 58px; 
+    transition: 0.5s;
+    text-align: left;
+  }
+  .datavalue{
+    background: #ebf6e0; 
+    border-radius: 2px; 
+    border: 1px solid #b3dc82; 
+    box-sizing: border-box; 
+    float: none;
+    margin: 50px auto; 
+    outline: 0px; 
+    padding: -20px; 
+    color: #5f9025; 
+    font-family: arial, sans-serif; 
+    font-size: 15px;
+    text-align: left;
+    vertical-align: sub;
+    height:auto;
+    width: auto;
+  }
+  .graph{
+    background: linear-gradient(40deg,#4caf5014,#ffeb3b17);
+    border-radius: 3px;
+    border: 6px solid #d5d5d500;
+    color: #333333;
+    border-image-source: linear-gradient(to left, #71cfa880, #9c27b0a8, #03a9f4a6);
+    border-image-slice: 1;
+    font-family: inherit;
+    font-size: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0px;
+    padding: 1em;
+    vertical-align: baseline;
+  }
+ 
+ .tittle {
+   text-align:  center;
+   margin-bottom: 20px;
+ }
+.form-group {
+  margin-top: 15px;
+}
